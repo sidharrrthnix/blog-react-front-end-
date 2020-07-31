@@ -1,0 +1,4 @@
+node_modules/
+backend-api/
+dist/
+.env
