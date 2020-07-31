@@ -48,7 +48,7 @@ function Profile() {
       const ourRequest = Axios.CancelToken.source()
       async function fetchData() {
         try {
-          const response = await Axios.post(`http://localhost:8080/addFollow/${state.profileData.profileUsername}`, { token: appState.user.token }, { CancelToken: ourRequest.token })
+          const response = await Axios.post(`/addFollow/${state.profileData.profileUsername}`, { token: appState.user.token }, { CancelToken: ourRequest.token })
           setState((draft) => {
             draft.profileData.isFollowing = true
             draft.profileData.counts.followerCount++
@@ -72,7 +72,7 @@ function Profile() {
       const ourRequest = Axios.CancelToken.source()
       async function fetchData() {
         try {
-          const response = await Axios.post(`http://localhost:8080/removeFollow/${state.profileData.profileUsername}`, { token: appState.user.token }, { CancelToken: ourRequest.token })
+          const response = await Axios.post(`/removeFollow/${state.profileData.profileUsername}`, { token: appState.user.token }, { CancelToken: ourRequest.token })
           setState((draft) => {
             draft.profileData.isFollowing = false
             draft.profileData.counts.followerCount--

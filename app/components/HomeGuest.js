@@ -135,7 +135,7 @@ function HomeGuest() {
       const ourRequest = Axios.CancelToken.source()
       async function fetchResults() {
         try {
-          const response = await Axios.post("/doesUsernameExist", { username: state.username.value }, { cancelToken: ourRequest.token })
+          const response = await Axios.post("http://localhost:8080/doesUsernameExist", { username: state.username.value }, { cancelToken: ourRequest.token })
           dispatch({ type: "usernameUniqueResults", value: response.data })
         } catch (e) {
           console.log("There was a problem or the request was cancelled.")
@@ -151,7 +151,7 @@ function HomeGuest() {
       const ourRequest = Axios.CancelToken.source()
       async function fetchResults() {
         try {
-          const response = await Axios.post("/doesEmailExist", { email: state.email.value }, { cancelToken: ourRequest.token })
+          const response = await Axios.post("http://localhost:8080/doesEmailExist", { email: state.email.value }, { cancelToken: ourRequest.token })
           dispatch({ type: "emailUniqueResults", value: response.data })
         } catch (e) {
           console.log("There was a problem or the request was cancelled.")

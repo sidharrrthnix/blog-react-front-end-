@@ -1,7 +1,7 @@
 import React, { useState, useReducer, useEffect, Suspense } from "react"
 import ReactDom from "react-dom"
 import Axios from "axios"
-Axios.defaults.baseUrl = process.env.BACKENDURL || "https://sidharrth-blog-react.herokuapp.com"
+Axios.defaults.baseURL = process.env.BACKENDURL || "https://sidharrth-blog-react.herokuapp.com/"
 import { useImmerReducer } from "use-immer"
 import { CSSTransition } from "react-transition-group"
 
@@ -92,7 +92,7 @@ function Main() {
 
       async function fetchResult() {
         try {
-          const response = await Axios.post("/checkToken", { token: state.user.token }, { token: ourRequest.token })
+          const response = await Axios.post("http://localhost:8080/checkToken", { token: state.user.token }, { token: ourRequest.token })
 
           if (!response.data) {
             dispatch({ type: "logout" })
